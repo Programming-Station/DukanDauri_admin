@@ -1,0 +1,227 @@
+/* Login Page Styles - Fixed Size Design */
+
+.login-container {
+  width: 380px;
+  height: 380px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 120px auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Semi-circular Header Section */
+.header-section {
+  position: relative;
+  height: 120px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.header-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 0 50% 50%;
+}
+
+.profile-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.profile-name {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+/* Profile Icon */
+.profile-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+  position: relative;
+  z-index: 3;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-icon i {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Form Container */
+.form-container {
+  flex: 1;
+  padding: 15px 30px 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+}
+
+.form-control::placeholder {
+  color: #999;
+  font-size: 14px;
+}
+
+/* Error Message */
+.error-message {
+  color: #dc3545;
+  font-size: 12px;
+  text-align: center;
+  margin-top: -5px;
+}
+
+/* Login Button */
+.login-btn {
+  width: 100%;
+  padding: 8px;
+  background: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+}
+
+.login-btn:hover:not(:disabled) {
+  background: #0b5ed7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+.login-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Registration Link */
+.registration-link {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.join-link {
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.join-link:hover {
+  color: #0b5ed7;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .login-container {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 95%;
+    height: 280px;
+  }
+  
+  .header-section {
+    height: 100px;
+  }
+  
+  .profile-name {
+    font-size: 1rem;
+  }
+  
+  .form-container {
+    padding: 10px 20px 15px;
+  }
+  
+  .form-control {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  
+  .login-btn {
+    padding: 6px;
+    font-size: 13px;
+  }
+  
+  .registration-link {
+    font-size: 11px;
+  }
+}

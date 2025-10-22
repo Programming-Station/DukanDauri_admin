@@ -1,0 +1,147 @@
+<!-- Header -->
+<app-header></app-header>
+
+<!-- Main Content Area -->
+<main class="public-body">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">Welcome to DukanDauri</h1>
+          <p class="hero-subtitle">Discover amazing products at unbeatable prices</p>
+          <div class="hero-actions">
+            <a href="/products" class="btn btn-primary">Shop Now</a>
+            <a href="/deals" class="btn btn-secondary">View Deals</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" alt="E-commerce Hero" class="hero-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="featured-categories">
+    <div class="container">
+      <h2 class="section-title">Shop by Category</h2>
+      <div class="categories-grid">
+        <div class="category-card" *ngFor="let category of featuredCategories">
+          <a [href]="'/category/' + category.slug" class="category-link">
+            <div class="category-image">
+              <img [src]="category.image" [alt]="category.name" class="category-img">
+              <div class="category-overlay">
+                <i [class]="category.icon"></i>
+              </div>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">{{ category.name }}</h3>
+              <p class="category-count">{{ category.count }} products</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Products</h2>
+        <a href="/products" class="view-all-link">View All Products</a>
+      </div>
+      <div class="products-grid">
+        <div class="product-card" *ngFor="let product of featuredProducts">
+          <div class="product-image">
+            <img [src]="product.image" [alt]="product.name" class="product-img">
+            <div class="product-badges">
+              <span class="badge badge-sale" *ngIf="product.isOnSale">Sale</span>
+              <span class="badge badge-new" *ngIf="product.isNew">New</span>
+            </div>
+            <div class="product-actions">
+              <button class="action-btn" title="Add to Wishlist">
+                <i class="fas fa-heart"></i>
+              </button>
+              <button class="action-btn" title="Quick View">
+                <i class="fas fa-eye"></i>
+              </button>
+              <button class="action-btn" title="Add to Cart">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star" *ngFor="let star of getStars(product.rating)"></i>
+                <i class="far fa-star" *ngFor="let star of getEmptyStars(product.rating)"></i>
+              </div>
+              <span class="rating-count">({{ product.reviewCount }})</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">${{ product.price }}</span>
+              <span class="original-price" *ngIf="product.originalPrice">${{ product.originalPrice }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Offers -->
+  <section class="special-offers">
+    <div class="container">
+      <h2 class="section-title">Special Offers</h2>
+      <div class="offers-grid">
+        <div class="offer-card" *ngFor="let offer of specialOffers">
+          <div class="offer-image">
+            <img [src]="offer.image" [alt]="offer.title" class="offer-img">
+          </div>
+          <div class="offer-content">
+            <h3 class="offer-title">{{ offer.title }}</h3>
+            <p class="offer-description">{{ offer.description }}</p>
+            <div class="offer-discount">{{ offer.discount }}% OFF</div>
+            <a [href]="offer.link" class="offer-btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-content">
+        <div class="newsletter-text">
+          <h2 class="newsletter-title">Stay Updated</h2>
+          <p class="newsletter-description">Get the latest deals and product updates delivered to your inbox</p>
+        </div>
+        <form class="newsletter-form" (ngSubmit)="onNewsletterSubmit()">
+          <div class="newsletter-input-group">
+            <input 
+              type="email" 
+              class="newsletter-input" 
+              placeholder="Enter your email address"
+              [(ngModel)]="newsletterEmail"
+              name="newsletterEmail"
+              required
+            >
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Router Outlet for Page Content -->
+  <div class="page-content">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<!-- Footer -->
+<app-footer></app-footer>
+

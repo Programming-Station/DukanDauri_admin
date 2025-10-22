@@ -1,0 +1,165 @@
+<footer class="ecommerce-footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Company Info -->
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="https://via.placeholder.com/200x60/3498db/ffffff?text=DukanDauri" alt="DukanDauri" class="footer-logo-img">
+            <span class="footer-logo-text">DukanDauri</span>
+          </div>
+          <p class="footer-description">
+            Your trusted online marketplace for quality products at unbeatable prices. 
+            Shop with confidence and enjoy fast, reliable delivery.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-link" title="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/press">Press</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/sitemap">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Service -->
+        <div class="footer-section">
+          <h3 class="footer-title">Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="/help">Help Center</a></li>
+            <li><a href="/shipping">Shipping Info</a></li>
+            <li><a href="/returns">Returns & Exchanges</a></li>
+            <li><a href="/size-guide">Size Guide</a></li>
+            <li><a href="/track-order">Track Your Order</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Shop Categories -->
+        <div class="footer-section">
+          <h3 class="footer-title">Shop Categories</h3>
+          <ul class="footer-links">
+            <li><a href="/category/electronics">Electronics</a></li>
+            <li><a href="/category/clothing">Clothing & Fashion</a></li>
+            <li><a href="/category/home">Home & Garden</a></li>
+            <li><a href="/category/books">Books & Media</a></li>
+            <li><a href="/category/sports">Sports & Fitness</a></li>
+            <li><a href="/category/beauty">Beauty & Health</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Contact -->
+        <div class="footer-section">
+          <h3 class="footer-title">Stay Connected</h3>
+          <p class="newsletter-text">Subscribe to our newsletter for exclusive deals and updates!</p>
+          <form class="newsletter-form" (ngSubmit)="onNewsletterSubmit()">
+            <div class="newsletter-input-group">
+              <input 
+                type="email" 
+                class="newsletter-input" 
+                placeholder="Enter your email"
+                [(ngModel)]="newsletterEmail"
+                name="newsletterEmail"
+                required
+              >
+              <button type="submit" class="newsletter-btn">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+          
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+1 (555) 123-4567</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>support@dukandauri.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Commerce St, City, State 12345</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Methods -->
+  <div class="payment-section">
+    <div class="container">
+      <div class="payment-content">
+        <div class="payment-text">
+          <span>We Accept:</span>
+        </div>
+        <div class="payment-methods">
+          <div class="payment-method">
+            <i class="fab fa-cc-visa"></i>
+            <span>Visa</span>
+          </div>
+          <div class="payment-method">
+            <i class="fab fa-cc-mastercard"></i>
+            <span>Mastercard</span>
+          </div>
+          <div class="payment-method">
+            <i class="fab fa-cc-amex"></i>
+            <span>American Express</span>
+          </div>
+          <div class="payment-method">
+            <i class="fab fa-cc-paypal"></i>
+            <span>PayPal</span>
+          </div>
+          <div class="payment-method">
+            <i class="fab fa-cc-apple-pay"></i>
+            <span>Apple Pay</span>
+          </div>
+          <div class="payment-method">
+            <i class="fab fa-cc-stripe"></i>
+            <span>Stripe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-content">
+        <div class="copyright">
+          <p>&copy; {{ currentYear }} DukanDauri. All rights reserved.</p>
+        </div>
+        <div class="footer-bottom-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/cookies">Cookie Policy</a>
+          <a href="/accessibility">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,166 @@
+<header class="ecommerce-header">
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-content">
+        <div class="contact-info">
+          <span><i class="fas fa-phone"></i> +1 (555) 123-4567</span>
+          <span><i class="fas fa-envelope"></i> support@dukandauri.com</span>
+        </div>
+        <div class="top-links">
+          <a href="#" class="top-link">Track Order</a>
+          <a href="#" class="top-link">Help</a>
+          <a href="#" class="top-link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <div class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="/" class="logo-link">
+            <img src="https://via.placeholder.com/200x60/007bff/ffffff?text=DukanDauri" alt="DukanDauri" class="logo-img">
+            <span class="logo-text">DukanDauri</span>
+          </a>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+          <form class="search-form" (ngSubmit)="onSearch()">
+            <div class="search-input-group">
+              <input type="text" class="search-input" placeholder="Search for products, brands and more..."
+                [(ngModel)]="searchQuery" name="searchQuery">
+              <select class="category-select">
+                <option value="">All Categories</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+                <option value="home">Home & Garden</option>
+                <option value="books">Books</option>
+                <option value="sports">Sports</option>
+              </select>
+              <button type="submit" class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <!-- Wishlist -->
+          <div class="action-item">
+            <a href="/wishlist" class="action-link">
+              <i class="fas fa-heart"></i>
+              <span class="action-text">Wishlist</span>
+              <span class="badge" *ngIf="wishlistCount > 0">{{ wishlistCount }}</span>
+            </a>
+          </div>
+
+          <!-- Account -->
+          <div class="action-item dropdown">
+            <a href="#" class="action-link" (click)="toggleAccountDropdown($event)">
+              <i class="fas fa-user"></i>
+              <span class="action-text">Account</span>
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu" [class.show]="showAccountDropdown">
+              <a href="/login" class="dropdown-item">Login</a>
+              <a href="/register" class="dropdown-item">Register</a>
+              <a href="/profile" class="dropdown-item">My Profile</a>
+              <a href="/orders" class="dropdown-item">My Orders</a>
+              <a href="/logout" class="dropdown-item">Logout</a>
+            </div>
+          </div>
+
+          <!-- Shopping Cart -->
+          <div class="action-item">
+            <a href="/cart" class="action-link cart-link">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="action-text">Cart</span>
+              <span class="badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="main-navigation">
+    <div class="container">
+      <div class="nav-content">
+        <!-- Categories Dropdown -->
+        <div class="categories-dropdown dropdown">
+          <button class="categories-btn" (click)="toggleCategoriesDropdown($event)">
+            <i class="fas fa-bars"></i>
+            <span>All Categories</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="categories-menu" [class.show]="showCategoriesDropdown">
+            <div class="category-item">
+              <a href="/category/electronics" class="category-link">
+                <i class="fas fa-laptop"></i>
+                Electronics
+              </a>
+            </div>
+            <div class="category-item">
+              <a href="/category/clothing" class="category-link">
+                <i class="fas fa-tshirt"></i>
+                Clothing & Fashion
+              </a>
+            </div>
+            <div class="category-item">
+              <a href="/category/home" class="category-link">
+                <i class="fas fa-home"></i>
+                Home & Garden
+              </a>
+            </div>
+            <div class="category-item">
+              <a href="/category/books" class="category-link">
+                <i class="fas fa-book"></i>
+                Books & Media
+              </a>
+            </div>
+            <div class="category-item">
+              <a href="/category/sports" class="category-link">
+                <i class="fas fa-dumbbell"></i>
+                Sports & Fitness
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Menu -->
+        <ul class="main-menu">
+          <li class="menu-item">
+            <a href="/" class="menu-link">Home</a>
+          </li>
+          <li class="menu-item">
+            <a href="/products" class="menu-link">Products</a>
+          </li>
+          <li class="menu-item">
+            <a href="/deals" class="menu-link">Deals</a>
+          </li>
+          <li class="menu-item">
+            <a href="/brands" class="menu-link">Brands</a>
+          </li>
+          <li class="menu-item">
+            <a href="/about" class="menu-link">About</a>
+          </li>
+        </ul>
+
+        <!-- Special Offers -->
+        <div class="special-offers">
+          <a href="/flash-sale" class="offer-link">
+            <span class="offer-text">Flash Sale</span>
+            <span class="offer-badge">50% OFF</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
