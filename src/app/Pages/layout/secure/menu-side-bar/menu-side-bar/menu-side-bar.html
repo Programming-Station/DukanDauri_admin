@@ -1,0 +1,128 @@
+<div class="sidebar" [class.collapsed]="isCollapsed">
+  <!-- Sidebar Header -->
+  <div class="sidebar-header">
+    <div class="logo-container">
+      <img src="DukanDauri.png" alt="DukanDauri Logo" class="logo" *ngIf="!isCollapsed">
+      <img src="DukanDauri.png" alt="DukanDauri Logo" class="logo-small" *ngIf="isCollapsed">
+      <span class="logo-text text-primary" *ngIf="!isCollapsed">DukanDauri</span>
+    </div>
+    <button class="toggle-btn" (click)="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar-nav">
+    <div class="nav-sections">
+      <div class="nav-section" *ngFor="let section of menuSections">
+        <div class="section-title" *ngIf="!isCollapsed">{{ section.title }}</div>
+        <ul class="nav-list">
+          <li class="nav-item" *ngFor="let item of section.items">
+            <!-- Check if item has children (nested) or is direct -->
+            <div *ngIf="item.children && item.children.length > 0; else directItem">
+              <!-- Parent Menu Item with Children -->
+              <div 
+                class="nav-link" 
+                [class.active]="activeMenuItem === item.id || hasActiveChild(item)"
+                [class.has-children]="item.children && item.children.length > 0"
+                [class.expanded]="isExpanded(item.id)"
+                (click)="onMenuClick(item)"
+                [title]="isCollapsed ? item.title : ''"
+              >
+                <i [class]="item.icon" class="nav-icon"></i>
+                <span class="nav-text" *ngIf="!isCollapsed">{{ item.title }}</span>
+                <i 
+                  class="fas fa-chevron-down expand-icon" 
+                  *ngIf="!isCollapsed && item.children && item.children.length > 0"
+                  [class.rotated]="isExpanded(item.id)"
+                ></i>
+              </div>
+            </div>
+            
+            <!-- Direct Menu Item (no children) -->
+            <ng-template #directItem>
+              <a 
+                class="nav-link" 
+                [class.active]="activeMenuItem === item.id"
+                [routerLink]="item.route"
+                (click)="onMenuItemClick(item)"
+                [title]="isCollapsed ? item.title : ''"
+              >
+                <i [class]="item.icon" class="nav-icon"></i>
+                <span class="nav-text" *ngIf="!isCollapsed">{{ item.title }}</span>
+              </a>
+            </ng-template>
+            
+            <!-- Child Menu Items -->
+            <ul class="nav-sublist" *ngIf="item.children && item.children.length > 0 && isExpanded(item.id)">
+              <li class="nav-subitem" *ngFor="let child of item.children">
+                <!-- Check if child has its own children (nested) -->
+                <div *ngIf="child.children && child.children.length > 0; else directChild">
+                  <!-- Nested Parent -->
+                  <div 
+                    class="nav-sublink nav-sublink-parent" 
+                    [class.active]="activeMenuItem === child.id || hasActiveChild(child)"
+                    [class.expanded]="isExpanded(child.id)"
+                    (click)="onMenuClick(child)"
+                    [title]="isCollapsed ? child.title : ''"
+                  >
+                    <i [class]="child.icon" class="nav-subicon"></i>
+                    <span class="nav-subtext" *ngIf="!isCollapsed">{{ child.title }}</span>
+                    <i 
+                      class="fas fa-chevron-down expand-icon" 
+                      *ngIf="!isCollapsed"
+                      [class.rotated]="isExpanded(child.id)"
+                    ></i>
+                  </div>
+                  
+                  <!-- Nested Children -->
+                  <ul class="nav-sub-sublist" *ngIf="isExpanded(child.id)">
+                    <li class="nav-sub-subitem" *ngFor="let grandChild of child.children">
+                      <a 
+                        class="nav-sub-sublink" 
+                        [class.active]="activeMenuItem === grandChild.id"
+                        [routerLink]="grandChild.route"
+                        (click)="onMenuItemClick(grandChild)"
+                        [title]="isCollapsed ? grandChild.title : ''"
+                      >
+                        <i [class]="grandChild.icon" class="nav-sub-subicon"></i>
+                        <span class="nav-sub-subtext" *ngIf="!isCollapsed">{{ grandChild.title }}</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                
+                <!-- Direct Child (no nested children) -->
+                <ng-template #directChild>
+                  <a 
+                    class="nav-sublink" 
+                    [class.active]="activeMenuItem === child.id"
+                    [routerLink]="child.route"
+                    (click)="onMenuItemClick(child)"
+                    [title]="isCollapsed ? child.title : ''"
+                  >
+                    <i [class]="child.icon" class="nav-subicon"></i>
+                    <span class="nav-subtext" *ngIf="!isCollapsed">{{ child.title }}</span>
+                  </a>
+                </ng-template>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar Footer -->
+  <div class="sidebar-footer" *ngIf="!isCollapsed">
+    <div class="user-info">
+      <div class="user-avatar">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="user-details">
+        <div class="user-name">Admin User</div>
+        <div class="user-role">Administrator</div>
+      </div>
+    </div>
+  </div>
+</div>

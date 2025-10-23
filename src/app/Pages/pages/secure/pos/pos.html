@@ -1,0 +1,304 @@
+<div class="pos-page">
+  <!-- Header -->
+  <div class="pos-header">
+    <div class="header-left">
+      <button class="toggle-btn" (click)="toggleSidebar()" title="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="logo">
+        <span class="logo-text">DukanDauri</span>
+        <span class="logo-badge">ERP</span>
+      </div>
+    </div>
+    
+    <div class="header-center">
+      <div class="order-types">
+        <label class="radio-option">
+          <input type="radio" name="orderType" value="dine-in" checked>
+          <span>Dine In</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="orderType" value="take-away">
+          <span>Take Away</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="orderType" value="walk-in">
+          <span>Walk In</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="orderType" value="delivery">
+          <span>Delivery</span>
+        </label>
+      </div>
+      <select class="store-select">
+        <option>Adit Stores</option>
+      </select>
+    </div>
+    
+    <div class="header-right">
+      <button class="header-icon"><i class="fas fa-cloud-upload-alt"></i></button>
+      <button class="header-icon"><i class="fas fa-trash"></i></button>
+      <button class="header-icon"><i class="fas fa-times"></i></button>
+      <button class="header-icon"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="pos-main">
+    <div class="pos-left">
+      <!-- Input Fields -->
+      <div class="input-section">
+        <input type="text" placeholder="Scan Barcode/Enter Product Name" class="main-input">
+        <select class="customer-select">
+          <option>Walk in Customer</option>
+        </select>
+        <input type="text" placeholder="Scan Sales Invoice" class="invoice-input">
+      </div>
+
+      <!-- Product Table -->
+      <div class="product-table">
+        <div class="table-header">
+          <div class="col">#</div>
+          <div class="col">Itemcode</div>
+          <div class="col">Product</div>
+          <div class="col">Qty</div>
+          <div class="col">MRP</div>
+          <div class="col">Discount</div>
+          <div class="col">Add Disc</div>
+          <div class="col">Unit Cost</div>
+          <div class="col">Net Amount</div>
+        </div>
+        <div class="table-body">
+          <!-- Product rows will be added here -->
+        </div>
+      </div>
+
+      <!-- Remarks -->
+      <div class="remarks-section">
+        <input type="text" placeholder="Remarks" class="remarks-input">
+      </div>
+      <div class="summary-row">
+        <div class="summary-item">
+          <span class="summary-value">0.000</span>
+          <span class="summary-label">Quantity</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-value">0</span>
+          <span class="summary-label">MRP</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-value">0.00</span>
+          <span class="summary-label">Tax Amount</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-value">0</span>
+          <span class="summary-label">Add.Charges <i class="fas fa-plus"></i></span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-value">0.00</span>
+          <span class="summary-label">Discount</span>
+        </div>
+        <div class="summary-item total-item">
+          <span class="summary-value total-amount">0</span>
+          <span class="summary-label">Amount</span>
+        </div>
+      </div>
+      
+      <!-- Footer -->
+      <div class="pos-footer">
+       
+        <div class="payment-buttons">
+          <div class="payment-row">
+            <button class="payment-btn">
+              <i class="fas fa-layer-group"></i>
+              Multiple Pay (F12)
+            </button>
+            <button class="payment-btn">
+              <i class="fas fa-coins"></i>
+              Redeem Credit
+            </button>
+            <button class="payment-btn">
+              <i class="fas fa-pause"></i>
+              Hold (F6)
+            </button>
+            <button class="payment-btn">
+              <i class="fas fa-play"></i>
+              ► UPI (F5)
+            </button>
+            <button class="payment-btn">
+              <i class="fas fa-credit-card"></i>
+              Card (F3)
+            </button>
+            <button class="payment-btn">
+              <i class="fas fa-rupee-sign"></i>
+              Cash (F4)
+            </button>
+          </div>
+          
+        
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="pos-right">
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="action-btn">
+          <i class="fas fa-pause"></i>
+          <span>Hold Bill</span>
+        </button>
+        <button class="action-btn">
+          <i class="fas fa-utensils"></i>
+          <span>Tables</span>
+        </button>
+        <button class="action-btn">
+          <i class="fas fa-list"></i>
+          <span>Payments</span>
+        </button>
+        <button class="action-btn">
+          <i class="fas fa-gift"></i>
+          <span>Redeem Loyalty</span>
+        </button>
+        <button class="action-btn">
+          <i class="fas fa-coins">1</i>
+          <span>Add Payment</span>
+        </button>
+        <button class="action-btn">
+          <i class="fas fa-file-alt"></i>
+          <span>Credit Notes</span>
+        </button>
+        <button class="action-btn">
+          <i class="fas fa-list"></i>
+          <span>Orders</span>
+        </button>
+        <button class="action-btn">
+          <i class="fas fa-cog"></i>
+          <span>Setting</span>
+        </button>
+      </div>
+
+      <!-- Customer Details -->
+      <div class="customer-details">
+        <h3>Customer Details</h3>
+        <div class="detail-item">
+          <span>Last Visited:</span>
+          <span>-</span>
+        </div>
+        <div class="detail-item">
+          <span>Last Bill Amount:</span>
+          <span>₹0</span>
+        </div>
+        <div class="detail-item">
+          <span>Most Purchased Item:</span>
+          <span>0</span>
+        </div>
+        <div class="detail-item">
+          <span>Closing:</span>
+          <span>0</span>
+        </div>
+        <div class="detail-item">
+          <span>Total Purchase:</span>
+          <span>0</span>
+        </div>
+        <div class="detail-item">
+          <span>Loyalty Points:</span>
+          <span>0</span>
+        </div>
+        
+        <div class="bill-info">
+          <div class="bill-item">
+            <span>Last Bill No.:</span>
+            <span>-</span>
+          </div>
+          <div class="bill-item">
+            <span>Last Bill Amount:</span>
+            <span>-</span>
+          </div>
+        </div>
+        
+        <button class="print-btn">
+          <i class="fas fa-print"></i>
+          Last Bill Print
+        </button>
+        
+        <div class="social-icons">
+          <button class="social-btn"><i class="fas fa-thumbs-up"></i></button>
+          <button class="social-btn"><i class="fas fa-thumbs-down"></i></button>
+          <button class="social-btn"><i class="fas fa-comment"></i></button>
+          <button class="social-btn"><i class="fas fa-share"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="pos-footer">
+    <div class="summary-row">
+      <span>0.000 Quantity</span>
+      <span>0 MRP</span>
+      <span>0.00 Tax Amount</span>
+      <span>0 Add.Charges <i class="fas fa-plus"></i></span>
+      <span>0.00 Discount</span>
+      <span class="total-amount">0 Amount</span>
+    </div>
+    
+    <div class="payment-buttons">
+      <div class="payment-row">
+        <button class="payment-btn">
+          <i class="fas fa-layer-group"></i>
+          Multiple Pay (F12)
+        </button>
+        <button class="payment-btn">
+          <i class="fas fa-coins"></i>
+          Redeem Credit
+        </button>
+        <button class="payment-btn">
+          <i class="fas fa-pause"></i>
+          Hold (F6)
+        </button>
+        <button class="payment-btn">
+          <i class="fas fa-play"></i>
+          ► UPI (F5)
+        </button>
+        <button class="payment-btn">
+          <i class="fas fa-credit-card"></i>
+          Card (F3)
+        </button>
+        <button class="payment-btn">
+          <i class="fas fa-money-bill"></i>
+          Cash (F4)
+        </button>
+      </div>
+      
+      <div class="payment-row">
+        <button class="payment-btn">
+          <i class="fas fa-tag"></i>
+          Apply Coupon
+        </button>
+        <button class="payment-btn">
+          <i class="fas fa-calendar"></i>
+          Pay Later (F11)
+        </button>
+        <button class="payment-btn">
+          <i class="fas fa-pause"></i>
+          Hold & Print(F7)
+        </button>
+        <button class="payment-btn">
+          <i class="fas fa-play"></i>
+          ► UPI & Print (F10)
+        </button>
+        <button class="payment-btn">
+          <i class="fas fa-credit-card"></i>
+          Card & Print (F9)
+        </button>
+        <button class="payment-btn">
+          <i class="fas fa-money-bill"></i>
+          Cash & Print (F8)
+        </button>
+      </div>
+    </div>
+    
+   
+  </div>
+</div>

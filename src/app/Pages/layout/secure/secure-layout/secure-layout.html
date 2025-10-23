@@ -1,0 +1,26 @@
+<div class="secure-layout">
+  <!-- Sidebar -->
+  <app-menu-side-bar 
+    *ngIf="showSidebar"
+    [isCollapsed]="sidebarCollapsed"
+    (sidebarToggle)="onSidebarToggle($event)">
+  </app-menu-side-bar>
+
+  <!-- Main Content Area -->
+  <div class="main-content" [class.sidebar-collapsed]="sidebarCollapsed" [class.pos-mode]="isPosPage">
+    <!-- Header -->
+    <app-header 
+      *ngIf="showHeaderFooter"
+      [sidebarCollapsed]="sidebarCollapsed"
+      (sidebarToggle)="onSidebarToggle($event)">
+    </app-header>
+
+    <!-- Page Content -->
+    <main class="page-content" [class.pos-content]="isPosPage">
+      <router-outlet></router-outlet>
+    </main>
+
+    <!-- Footer -->
+    <app-fotter *ngIf="showHeaderFooter" [sidebarCollapsed]="sidebarCollapsed"></app-fotter>
+  </div>
+</div>

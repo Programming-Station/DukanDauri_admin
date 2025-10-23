@@ -1,0 +1,120 @@
+/* Secure Layout Styles */
+.secure-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: 70px;
+}
+
+/* POS Mode - Special Layout */
+.main-content.pos-mode {
+  margin-left: 0; /* No sidebar margin in POS mode */
+}
+
+.main-content.pos-mode.sidebar-collapsed {
+  margin-left: 0; /* Keep no margin when sidebar is shown in POS mode */
+}
+
+/* Page Content */
+.page-content {
+  flex: 1;
+  padding: 20px 30px 100px 30px; /* Added bottom padding for fixed footer */
+  margin-top: 70px; /* Account for fixed header */
+  min-height: calc(100vh - 70px); /* Account for header only */
+  background: #f8fafc;
+}
+
+/* POS Content - Full Screen */
+.page-content.pos-content {
+  margin-top: 0; /* No header margin in POS mode */
+  padding: 0; /* No padding in POS mode */
+  min-height: 100vh; /* Full height in POS mode */
+  width: 100vw; /* Full width in POS mode */
+  position: fixed; /* Fixed positioning for true full screen */
+  top: 0;
+  left: 0;
+  z-index: 1; /* Ensure content is above everything */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .main-content.sidebar-collapsed {
+    margin-left: 0;
+  }
+  
+  .page-content {
+    padding: 15px 20px 100px 20px; /* Added bottom padding for fixed footer */
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-content {
+    padding: 10px 15px 100px 15px; /* Added bottom padding for fixed footer */
+  }
+}
+
+/* Content Animation */
+.page-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Error State */
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: #ef4444;
+  text-align: center;
+}
+
+.error h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.error p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
